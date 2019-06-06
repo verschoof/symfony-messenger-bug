@@ -3,6 +3,12 @@ framework:
         # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
         # failure_transport: failed
 
+        default_bus: messenger.bus.commands
+        buses:
+            messenger.bus.commands: ~
+            messenger.bus.events:
+                default_middleware: allow_no_handlers
+
         transports:
             # https://symfony.com/doc/current/messenger.html#transports
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
